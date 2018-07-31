@@ -4,14 +4,14 @@ import java.lang.reflect.Method;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.listener.MessageListener;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 public class KafkaConsumerListener implements MessageListener<String, String> {
-    private static final Logger logger = LogManager.getLogger(KafkaConsumerListener.class);
+    private static final Logger logger = LoggerFactory.getLogger(KafkaConsumerListener.class);
 
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
@@ -48,7 +48,7 @@ public class KafkaConsumerListener implements MessageListener<String, String> {
                     Method method = service.getClass().getMethod(methodName, clazz);
                     method.invoke(service, param);
                 } catch (Exception e) {
-                    logger.error(e);
+                    logger.error("", e);
                 }
             }
         });

@@ -1,13 +1,13 @@
 package com.x.kafka;
 
 import org.apache.kafka.clients.producer.RecordMetadata;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.kafka.support.ProducerListener;
 
 @SuppressWarnings("rawtypes")
 public class KafkaProducerListener implements ProducerListener {
-    private static Logger logger = LogManager.getLogger(KafkaProducerListener.class);
+    private static final Logger logger = LoggerFactory.getLogger(KafkaProducerListener.class);
 
     /**
      * 发送消息成功后调用
@@ -31,9 +31,8 @@ public class KafkaProducerListener implements ProducerListener {
         logger.error("----------partition:" + partition);
         logger.error("----------key:" + key);
         logger.error("----------value:" + value);
-        logger.error("----------Exception:" + exception);
+        logger.error("----------Exception:", exception);
         logger.error("~~~~~~~~~~kafka is fail to send message~~~~~~~~~~");
-        logger.error(exception);
     }
 
     /**
