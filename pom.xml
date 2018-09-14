@@ -1,12 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.x</groupId>
+        <artifactId>xframework-deploy</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>x-kafka-client</artifactId>
-	<groupId>com.x</groupId>
 	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
 	<name>x-kafka-client</name>
 	<description>x-kafka-client</description>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -63,27 +68,5 @@
 			<version>1.7.25</version>
 		</dependency>
 	</dependencies>
-
-	<distributionManagement>
-		<repository>
-			<id>release</id>
-			<name>Internal Releases</name>
-			<url>http://47.93.47.14:8081/nexus/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>Snapshots</id>
-			<name>Internal Snapshots</name>
-			<url>http://47.93.47.14:8081/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
-	<repositories>
-		<repository>
-			<id>nuxes-snapshots</id>
-			<url>http://47.93.47.14:8081/nexus/content/repositories/snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
 
 </project>
